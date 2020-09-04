@@ -1,0 +1,27 @@
+package com.example.demo.strategy.planA;
+
+import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+/**
+ * @author: lijiawei04
+ * @date: 2020-09-02 14:10
+ * @description:
+ */
+@Component
+public class StrategyFactory {
+
+    private static Map<Integer, Strategy> STRATEGY_MAP = new ConcurrentHashMap<>();
+
+    public static Strategy getByType(Integer type) {
+        return STRATEGY_MAP.getOrDefault(type, null);
+    }
+
+    public static void register(Integer type, Strategy strategy) {
+        Assert.notNull(type, "type can't be null!");
+        STRATEGY_MAP.put(type, strategy);
+    }
+}

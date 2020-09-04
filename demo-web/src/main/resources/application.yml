@@ -1,0 +1,6 @@
+server:
+  port: 12345
+#logging
+logging:
+  config: classpath:log/logback.xml
+  file: logback-demo.log
