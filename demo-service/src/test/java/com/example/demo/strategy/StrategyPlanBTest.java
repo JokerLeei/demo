@@ -24,7 +24,7 @@ public class StrategyPlanBTest {
     private StrategyFactory strategyFactory;
 
     @Test
-    public void testPlanA() {
+    public void testPlanB() {
         Strategy strategyA = strategyFactory.getStrategyByType(StrategyTypeEnum.A_STRATEGY.getType());
         Strategy strategyB = strategyFactory.getStrategyByType(StrategyTypeEnum.B_STRATEGY.getType());
 

@@ -1,4 +1,4 @@
-package com.example.demo.strategy.InitializingBean;
+package com.example.demo.strategy.postConstruct;
 
 import org.springframework.util.Assert;
 
@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author: lijiawei04
- * @date: 2020-09-02 14:10
+ * @date: 2020-09-07 14:28
  * @description:
  */
 @Slf4j
@@ -17,7 +17,7 @@ public class StrategyFactory {
 
     private static Map<Integer, Strategy> STRATEGY_MAP = new ConcurrentHashMap<>();
 
-    public static Strategy getByType(Integer type) {
+    public static Strategy getStrategyByType(Integer type) {
         if (!STRATEGY_MAP.containsKey(type)) {
             if (log.isInfoEnabled()) {
                 log.info("didn't find strategy of type! type is:{}", type);
