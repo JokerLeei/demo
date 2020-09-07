@@ -1,4 +1,4 @@
-package com.example.demo.strategy.planA;
+package com.example.demo.strategy.InitializingBean;
 
 /**
  * @author: lijiawei04

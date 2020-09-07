@@ -1,14 +1,14 @@
-package com.example.demo.strategy.planA;
+package com.example.demo.strategy.InitializingBean;
 
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 /**
  * @author: lijiawei04
  * @date: 2020-09-02 14:28
  * @description:
  */
-@Service
+@Component(value = "AStrategyPlan")
 public class AStrategy implements Strategy, InitializingBean {
 
     @Override
@@ -20,4 +20,5 @@ public class AStrategy implements Strategy, InitializingBean {
     public void afterPropertiesSet() {
         StrategyFactory.register(StrategyTypeEnum.A_STRATEGY.getType(), this);
     }
+
 }

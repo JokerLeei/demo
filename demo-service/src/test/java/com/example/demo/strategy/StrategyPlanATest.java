@@ -1,7 +1,7 @@
 package com.example.demo.strategy;
 
-import com.example.demo.strategy.planA.Strategy;
-import com.example.demo.strategy.planA.StrategyFactory;
+import com.example.demo.strategy.InitializingBean.Strategy;
+import com.example.demo.strategy.InitializingBean.StrategyFactory;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class StrategyTest {
+public class StrategyPlanATest {
 
     @Test
     public void testPlanA() {

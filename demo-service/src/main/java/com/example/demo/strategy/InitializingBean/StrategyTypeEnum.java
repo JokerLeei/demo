@@ -1,4 +1,4 @@
-package com.example.demo.strategy.planB;
+package com.example.demo.strategy.InitializingBean;
 
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -21,7 +21,4 @@ public enum StrategyTypeEnum {
 
     private Integer type;
 
-    public static Optional<StrategyTypeEnum> getByType(Integer type) {
-        return Stream.of(values()).filter(typeEnum -> typeEnum.type.equals(type)).findAny();
-    }
 }

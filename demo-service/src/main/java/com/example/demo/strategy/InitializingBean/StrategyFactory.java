@@ -1,6 +1,5 @@
-package com.example.demo.strategy.planA;
+package com.example.demo.strategy.InitializingBean;
 
-import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
 import java.util.Map;
@@ -11,7 +10,6 @@ import java.util.concurrent.ConcurrentHashMap;
  * @date: 2020-09-02 14:10
  * @description:
  */
-@Component
 public class StrategyFactory {
 
     private static Map<Integer, Strategy> STRATEGY_MAP = new ConcurrentHashMap<>();
@@ -24,4 +22,5 @@ public class StrategyFactory {
         Assert.notNull(type, "type can't be null!");
         STRATEGY_MAP.put(type, strategy);
     }
+
 }
