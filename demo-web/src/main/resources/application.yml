@@ -1,6 +1,7 @@
 server:
   port: 12345
-#logging
+
+# log
 logging:
+  # log配置文件路径
   config: classpath:log/logback.xml
-  file: logback-demo.log
