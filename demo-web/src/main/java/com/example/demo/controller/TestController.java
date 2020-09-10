@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.observer.eventListener.AccessEvent;
-import com.example.demo.observer.eventListener.Request;
+import com.example.demo.designPattern.observer.eventListener.AccessEvent;
+import com.example.demo.designPattern.observer.eventListener.Request;
 
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.GetMapping;
