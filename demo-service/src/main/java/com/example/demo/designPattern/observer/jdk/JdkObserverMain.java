@@ -16,5 +16,4 @@ public class JdkObserverMain {
 
         observable.setData(1);
     }
-
 }

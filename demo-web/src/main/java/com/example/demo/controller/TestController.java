@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * @author: lijiawei04
  * @date: 2020-07-29 17:02
- * @description: 测试 controller
+ * @description: 测试 controller1
  */
 @Slf4j
 @RestController
@@ -38,9 +38,14 @@ public class TestController {
         log.info("原来的程序运行... request is:{}, now:{}", request, LocalDateTime.now());
     }
 
-    @GetMapping("test")
-    public String main() {
-        return "test!";
+    @PostMapping("test")
+    public String test(String param) {
+        return param;
+    }
+
+    @GetMapping("exception")
+    public void exception() {
+        throw new RuntimeException("aop exception");
     }
 
 }
