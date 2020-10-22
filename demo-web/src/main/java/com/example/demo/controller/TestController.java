@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.designPattern.observer.eventListener.AccessEvent;
+import com.example.demo.async.completablefuture.MainService;
 import com.example.demo.designPattern.observer.eventListener.Request;
 
 import org.springframework.context.ApplicationEventPublisher;
@@ -31,11 +31,12 @@ public class TestController {
      */
     private final ApplicationEventPublisher publisher;
 
+    private final MainService mainService;
+
     @PostMapping("listener")
     public void listener(@RequestBody Request request) {
-        log.info("准备执行主程序... now:{}", LocalDateTime.now());
-        publisher.publishEvent(new AccessEvent(this, request));
-        log.info("原来的程序运行... request is:{}, now:{}", request, LocalDateTime.now());
+        log.info("主程序运行开始... request:{}, now:{}", request, LocalDateTime.now());
+        log.info("主程序运行结束... now:{}", LocalDateTime.now());
     }
 
     @PostMapping("test")
@@ -46,6 +47,11 @@ public class TestController {
     @GetMapping("exception")
     public void exception() {
         throw new RuntimeException("aop exception");
+    }
+
+    @GetMapping("async")
+    public void async() {
+        mainService.doSomething();
     }
 
 }

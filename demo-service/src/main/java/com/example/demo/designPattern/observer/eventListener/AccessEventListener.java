@@ -16,11 +16,11 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Component
-@EnableAsync
+//@EnableAsync
 public class AccessEventListener {
 
     @EventListener
-    @Async
+//    @Async
     public void addAccess(AccessEvent event) {
         Request request = event.getRequest();
         try {
