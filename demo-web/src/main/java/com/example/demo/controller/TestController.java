@@ -50,8 +50,8 @@ public class TestController {
     }
 
     @GetMapping("async")
-    public void async() {
-        mainService.doSomething();
+    public String async() {
+        return mainService.doSomething();
     }
 
 }

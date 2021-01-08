@@ -30,15 +30,17 @@
 //@Aspect
 //@Order(value = 1)
 //@Component
-//@RequiredArgsConstructor(onConstructor_ = { @Autowired })
 //public class LockAspect {
 //
-//    private final RedisTemplate<Object, Object> redisTemplate;
+//    private final RedisTemplate<String, String> redisTemplate;
+//
+//    private static final String LOCK_KEY_PREFIX = "lock:key:prefix:";
 //
 //    @Pointcut(value = "@annotation(lock)")
-//    public void lockPointcut(Lock lock) {}
+//    public void lockPointcut(Lock lock) {
+//    }
 //
-//    @Around(value = "lockPointcut(lock)", argNames = "pjp, lock")
+//    @Around(value = "lockPointcut(lock)", argNames = "pjp,lock")
 //    public Object process(ProceedingJoinPoint pjp, Lock lock) throws Throwable {
 //        log.info("start lock...");
 //
@@ -46,7 +48,7 @@
 //        LockVO lockVo = this.parseLockAnnotationData(pjp, lock);
 //
 //        // 生成锁key
-//        String lockKey = lockVo.getGroup() + ":" + lockVo.getKey();
+//        String lockKey = LOCK_KEY_PREFIX + lockVo.getGroup() + ":" + lockVo.getKey();
 //
 //        // 竞争分布式锁 [加锁时生成的唯一的lockId用于保证加解锁是同一个线程]
 //        String lockId = this.lock(lockVo, lockKey);
@@ -67,7 +69,7 @@
 //        // 1. 如果当前线程已经拿到锁，直接返回
 //        // 可以通过ThreadLocal实现可重入式分布式锁，具体实现省略。
 //
-//        // 2. 否则，获取redis分布式锁，拿到新的lockId
+//        // 2. 否则，获取reds分布式锁，拿到新的lockId
 //        Long waitTime = lockVo.getWaitTime();
 //        Long leaseTime = lockVo.getLeaseTime();
 //
@@ -92,7 +94,7 @@
 //
 //    private void unlock(String lockKey, String lockId) {
 //        // 释放分布式锁
-//        if (ReentrantUtil.canRemove(lockKey)){
+//        if (ReentrantUtil.canRemove(lockKey)) {
 //            ReentrantUtil.remove(lockKey);
 //            // 如果lockId代表的锁依然存在，则可以解锁成功。
 //            Boolean success = RedisLockUtils.unlock(lockKey, lockId);
@@ -109,7 +111,7 @@
 //     * 解析@Lock数据
 //     */
 //    private LockVO parseLockAnnotationData(ProceedingJoinPoint pjp, Lock lock) {
-//        Method method = ((MethodSignature)pjp.getSignature()).getMethod();
+//        Method method = ((MethodSignature) pjp.getSignature()).getMethod();
 //
 //        String keyExpression = lock.value();
 //        // 解析el表达式，获取锁key
@@ -119,11 +121,13 @@
 //
 //    /**
 //     * 解析EL表达式
-//     * @param args 方法参数
-//     * @param method 方法
+//     *
+//     * @param args         方法参数
+//     * @param method       方法
 //     * @param elExpression EL表达式
-//     * @param resultType 结果类型
-//     * @param <T> 结果类型
+//     * @param resultType   结果类型
+//     * @param <T>          结果类型
+//     *
 //     * @return 结果
 //     */
 //    private static <T> T parseElExpression(Object[] args, Method method, String elExpression, Class<T> resultType) {
@@ -139,6 +143,11 @@
 //        }
 //        ExpressionParser parser = new SpelExpressionParser();
 //        return parser.parseExpression(elExpression).getValue(elContext, resultType);
+//    }
+//
+//    @Autowired
+//    public LockAspect(RedisTemplate<String, String> redisTemplate) {
+//        this.redisTemplate = redisTemplate;
 //    }
 //
 //}

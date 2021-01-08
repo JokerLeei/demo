@@ -5,8 +5,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
-
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.util.Assert;
 
 /**
  * <h2>非spring管理的类使用spring容器中注入的bean</h2>
@@ -16,7 +15,6 @@ import lombok.extern.slf4j.Slf4j;
  * @author: lijiawei04
  * @date: 2020/10/14 4:58 下午
  */
-@Slf4j
 @Component
 public class ApplicationContextHolder implements ApplicationContextAware {
 
@@ -24,6 +22,7 @@ public class ApplicationContextHolder implements ApplicationContextAware {
 
     @Override
     public void setApplicationContext(@NonNull ApplicationContext applicationContext) throws BeansException {
+        Assert.notNull(applicationContext, "application can't be null!");
         ApplicationContextHolder.applicationContext = applicationContext;
     }
 
