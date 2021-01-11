@@ -1,4 +1,4 @@
-package com.example.demo.althrogm;
+package com.example.demo.algorithm;
 
 import com.google.common.base.Charsets;
 import com.google.common.hash.BloomFilter;
