@@ -105,21 +105,4 @@ public class LotteryUtil {
 
     }
 
-    public static void main2(String[] args)throws InterruptedException{
-        Map map1 = new HashMap();  //定义Map集合对象
-        map1.put("apple","新鲜的苹果");  //向集合中添加对象
-        map1.put("computer","配置优良的计算机");
-        map1.put("book","堆积成山的图书");
-        Map map2 = new HashMap();
-        map2.put("apple","新鲜的苹果");  //定义Map集合对象map2
-        map2.put("computer","配置优良的计算机");
-        map2.put("book","堆积成山的图书");
-        boolean contains = map1.equals(map2);  //判断集合是否相等
-        if(contains){
-            System.out.println("两个Map对象相同");
-        }else{
-            System.out.println("这不是两个相同的Map对象");
-        }
-    }
-
 }
