@@ -71,7 +71,9 @@ public class LotteryUtil {
         for (Map.Entry<Long, Double> entry : treeMap.entrySet()) {
             Number value = entry.getValue();
             BigDecimal decimal = BigDecimal.valueOf(value.doubleValue());
-            BigDecimal result = decimal.divide(sum, 5, RoundingMode.HALF_UP);
+            // 重新计算概率除的时候 第二个参数取值参考最小概率奖品
+            // 如最小为0.000001(百万分支一)
+            BigDecimal result = decimal.divide(sum, 7, RoundingMode.HALF_UP);
             probabilities.add(result.doubleValue());
         }
 
@@ -86,14 +88,18 @@ public class LotteryUtil {
     public static void main(String[] args) {
 
         Map<Long, Double> map = new HashMap<>();
-        map.put(1L, 0.1);
-        map.put(2L, 0.2);
-        map.put(3L, 0.3);
-        map.put(4L, 0.4);
+//        map.put(1L, 0.1);
+//        map.put(2L, 0.2);
+//        map.put(3L, 0.3);
+//        map.put(4L, 0.4);
+        map.put(1L, 1.0);
+        map.put(2L, 100.0);
+        map.put(3L, 10000.0);
+        map.put(4L, 1000000.0);
 
         Map<Long, AtomicInteger> resultMap = new HashMap<>();
 
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 10000000; i++) {
             Long aLong = lotteryResult(map);
             if (!resultMap.containsKey(aLong)) {
                 resultMap.put(aLong, new AtomicInteger());

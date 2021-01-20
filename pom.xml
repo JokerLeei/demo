@@ -103,10 +103,11 @@
             <version>${redisson.version}</version>
         </dependency>
 
+        <!-- ONS -->
         <dependency>
-            <groupId>org.apache.rocketmq</groupId>
-            <artifactId>rocketmq-client</artifactId>
-            <version>4.4.0</version>
+            <groupId>com.aliyun.openservices</groupId>
+            <artifactId>ons-client</artifactId>
+            <version>1.8.0.Final</version>
         </dependency>
 
     </dependencies>

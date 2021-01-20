@@ -70,7 +70,8 @@ public class AliasMethod {
         /* Compute the average probability and cache it for later use. */
         final double average = 1.0 / probabilities.size();
 
-        /* Make a copy of the probabilities list, since we will be making
+        /*
+         * Make a copy of the probabilities list, since we will be making
          * changes to it.
          */
         probabilities = new ArrayList<Double>(probabilities);
