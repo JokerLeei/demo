@@ -29,7 +29,7 @@
         <fastjson.version>1.2.60.sec10</fastjson.version>
         <guava.version>19.0</guava.version>
         <jedis.version>2.10.2</jedis.version>
-        <redisson.version>3.12.5</redisson.version>
+<!--        <redisson.version>3.12.5</redisson.version>-->
     </properties>
 
     <dependencies>
@@ -87,27 +87,36 @@
             <version>${guava.version}</version>
         </dependency>
 
-        <!-- redis -->
+        <!-- spring data redis -->
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-redis</artifactId>
         </dependency>
+        <!-- jedis -->
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
             <version>${jedis.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.redisson</groupId>
-            <artifactId>redisson-spring-boot-starter</artifactId>
-            <version>${redisson.version}</version>
-        </dependency>
+        <!-- redisson -->
+<!--        <dependency>-->
+<!--            <groupId>org.redisson</groupId>-->
+<!--            <artifactId>redisson-spring-boot-starter</artifactId>-->
+<!--            <version>${redisson.version}</version>-->
+<!--        </dependency>-->
 
         <!-- ONS -->
         <dependency>
             <groupId>com.aliyun.openservices</groupId>
             <artifactId>ons-client</artifactId>
             <version>1.8.0.Final</version>
+        </dependency>
+
+        <!-- 解决 Spring Boot Configuration Annotation Processor not configured -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
 
     </dependencies>

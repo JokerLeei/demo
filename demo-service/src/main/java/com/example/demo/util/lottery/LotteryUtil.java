@@ -73,7 +73,7 @@ public class LotteryUtil {
             BigDecimal decimal = BigDecimal.valueOf(value.doubleValue());
             // 重新计算概率除的时候 第二个参数取值参考最小概率奖品
             // 如最小为0.000001(百万分支一)
-            BigDecimal result = decimal.divide(sum, 7, RoundingMode.HALF_UP);
+            BigDecimal result = decimal.divide(sum, 5, RoundingMode.HALF_UP);
             probabilities.add(result.doubleValue());
         }
 

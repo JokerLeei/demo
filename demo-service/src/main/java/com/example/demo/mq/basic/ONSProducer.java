@@ -1,4 +1,4 @@
-package com.example.demo.mq;
+package com.example.demo.mq.basic;
 
 import com.aliyun.openservices.ons.api.Message;
 import com.aliyun.openservices.ons.api.ONSFactory;

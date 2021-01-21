@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.constraints.Min;
-
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -49,7 +47,7 @@ public class AopController {
     }
 
     @GetMapping("testWithTwoParams")
-    public String testWithTwoParams(String param1, @Min(value = 0) Integer param2) {
+    public String testWithTwoParams(String param1, Integer param2) {
         StringBuilder sb = new StringBuilder();
         for (; param2 > 0; param2--) {
             sb.append(param1);
