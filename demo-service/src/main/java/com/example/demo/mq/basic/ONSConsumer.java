@@ -34,9 +34,9 @@ public class ONSConsumer {
         // 您在控制台创建的Group ID。
         properties.put(PropertyKeyConst.GROUP_ID, "GID_demo");
         // AccessKey ID阿里云身份验证，在阿里云服务器管理控制台创建。
-        properties.put(PropertyKeyConst.AccessKey, "LTAI4G5CTrSBZPX2nKP8q36p");
+        properties.put(PropertyKeyConst.AccessKey, "LTAI4G4xgmkhnkQmXV6EAyek");
         // AccessKey Secret阿里云身份验证，在阿里云服务器管理控制台创建。
-        properties.put(PropertyKeyConst.SecretKey, "VJGM96sZsXLIvnRZag6ZixQVPKGZ8f");
+        properties.put(PropertyKeyConst.SecretKey, "UBYI2tBYCdZ75rattKAb5iqBL3GcZG");
         // 设置TCP协议接入点，进入控制台的实例详情页面的TCP协议客户端接入点区域查看。
         properties.put(PropertyKeyConst.NAMESRV_ADDR, "http://MQ_INST_1048400171395301_BXcXru8T.mq-internet-access.mq-internet.aliyuncs.com:80");
         // 集群订阅方式（默认）。

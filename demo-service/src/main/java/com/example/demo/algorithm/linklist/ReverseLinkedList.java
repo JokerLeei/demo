@@ -1,4 +1,4 @@
-package com.example.demo.algorithm;
+package com.example.demo.algorithm.linklist;
 
 /**
  * 反转单向链表
@@ -22,9 +22,9 @@ public class ReverseLinkedList {
         doubleNode2.next = doubleNode3;
         doubleNode3.pre = doubleNode2;
 
-        print(doubleNode1);
+        DoubleNode.print(doubleNode1);
         reverse(doubleNode1);
-        print(doubleNode3);
+        DoubleNode.print(doubleNode3);
 
 
         System.out.println("===================================");
@@ -35,9 +35,9 @@ public class ReverseLinkedList {
         Node node3 = new Node(3);
         node1.next = node2;
         node2.next = node3;
-        print(node1);
+        Node.print(node1);
         reverse(node1);
-        print(node3);
+        Node.print(node3);
     }
 
     public static void reverse(Node node) {
@@ -63,56 +63,4 @@ public class ReverseLinkedList {
         }
     }
 
-    public static void print(DoubleNode doubleNode) {
-        if (doubleNode == null) {
-            return;
-        }
-        System.out.println(doubleNode.value + " [head:" + doubleNode.pre + "] [tail:" + doubleNode.next + "]");
-        print(doubleNode.next);
-    }
-
-    public static void print(Node node) {
-        if (node == null) {
-            System.out.println();
-            return;
-        }
-        if (node.next == null) {
-            System.out.println(node.value);
-            return;
-        }
-        System.out.print(node.value + " => ");
-        print(node.next);
-    }
-
-}
-
-class Node {
-    Integer value;
-
-    Node next;
-
-    Node(Integer value) {
-        this.value = value;
-    }
-
-    @Override
-    public String toString() {
-        return "Node{" + "value=" + value + '}';
-    }
-}
-
-class DoubleNode {
-    Integer value;
-
-    DoubleNode pre;
-    DoubleNode next;
-
-    DoubleNode(Integer value) {
-        this.value = value;
-    }
-
-    @Override
-    public String toString() {
-        return "Node{" + "value=" + value + '}';
-    }
 }
