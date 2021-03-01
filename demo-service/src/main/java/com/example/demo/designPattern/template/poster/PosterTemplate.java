@@ -39,6 +39,9 @@ public abstract class PosterTemplate {
      * @return 生成的海报url
      */
     public final String drawPoster() {
+        if (CollectionUtils.isEmpty(element())) {
+            return "";
+        }
         List<AbstractElement> elementList = element().stream()
                 .sorted(Comparator.comparing(AbstractElement::getOrder, Comparator.reverseOrder()))
                 .collect(Collectors.toList());

@@ -20,7 +20,7 @@ import redis.clients.jedis.JedisPoolConfig;
  */
 @Slf4j
 @Configuration
-public class JedisConfiguration {
+public class JedisConfig {
 
     private final JedisProperties jedisProperties;
 
@@ -60,7 +60,7 @@ public class JedisConfiguration {
     }
 
     @Autowired
-    public JedisConfiguration(JedisProperties jedisProperties) {
+    public JedisConfig(JedisProperties jedisProperties) {
         this.jedisProperties = jedisProperties;
     }
 

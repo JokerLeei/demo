@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
  * @date: 2021/1/8 3:37 下午
  */
 @Slf4j
-public class LotteryUtil {
+public abstract class LotteryUtil {
 
     /**
      * 缓存已有的AliasMethod方法

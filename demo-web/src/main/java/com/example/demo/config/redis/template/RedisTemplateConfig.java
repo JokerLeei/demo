@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Configuration
-public class RedisTemplateConfiguration {
+public class RedisTemplateConfig {
 
     private RedisConnectionFactory redisConnectionFactory;
 
@@ -36,11 +36,11 @@ public class RedisTemplateConfiguration {
     }
 
     @Autowired
-    public RedisTemplateConfiguration(@Qualifier("jedisConnectionFactory") RedisConnectionFactory redisConnectionFactory) {
+    public RedisTemplateConfig(@Qualifier("jedisConnectionFactory") RedisConnectionFactory redisConnectionFactory) {
         this.redisConnectionFactory = redisConnectionFactory;
     }
 
-    public RedisTemplateConfiguration(ObjectProvider<RedisConnectionFactory> redisConnectionFactoryObjectProvider) {
+    public RedisTemplateConfig(ObjectProvider<RedisConnectionFactory> redisConnectionFactoryObjectProvider) {
         if (redisConnectionFactoryObjectProvider.orderedStream().findFirst().isPresent()) {
             this.redisConnectionFactory = redisConnectionFactoryObjectProvider.orderedStream().findFirst().get();
         }

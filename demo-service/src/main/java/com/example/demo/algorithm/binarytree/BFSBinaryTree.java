@@ -42,7 +42,10 @@ public class BFSBinaryTree {
 
         while(!queue.isEmpty()) {
             BinaryTree treeNode = queue.poll();
-            System.out.print((treeNode == null ? "" : treeNode.value) + " ");
+            if (treeNode == null) {
+                break;
+            }
+            System.out.print(treeNode.value + " ");
 
             if (treeNode.left != null) {
                 queue.add(treeNode.left);

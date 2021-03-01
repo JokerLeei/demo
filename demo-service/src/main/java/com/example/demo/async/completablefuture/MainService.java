@@ -40,7 +40,7 @@ public class MainService {
 
     @Autowired
     public MainService(ViceService viceService,
-                       @Qualifier(value = "executor") Executor executor) {
+                       @Qualifier(value = "asyncExecutor") Executor executor) {
         this.viceService = viceService;
         this.executor = executor;
     }
