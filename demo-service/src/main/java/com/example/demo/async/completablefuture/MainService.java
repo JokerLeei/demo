@@ -35,7 +35,7 @@ public class MainService {
 
         log.info("主逻辑结束...... now is:{}", LocalDateTime.now());
 
-        return "";
+        return "ok";
     }
 
     @Autowired

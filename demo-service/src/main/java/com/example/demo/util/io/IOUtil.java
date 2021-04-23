@@ -1,8 +1,10 @@
 package com.example.demo.util.io;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,7 +17,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public abstract class IOUtil {
 
-    public static byte[] inputStream2ByteArray(InputStream is) {
+    /**
+     * inputStream => byte[]
+     */
+    public static byte[] getByteArray(InputStream is) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         byte[] b = new byte[1024];
         int length = 0;
@@ -40,6 +45,61 @@ public abstract class IOUtil {
         }
 
         return baos.toByteArray();
+    }
+
+    /**
+     * inputStream => outputStream
+     */
+    public ByteArrayOutputStream parse(InputStream in) throws Exception {
+        final ByteArrayOutputStream swapStream = new ByteArrayOutputStream();
+        int ch;
+        while ((ch = in.read()) != -1) {
+            swapStream.write(ch);
+        }
+        return swapStream;
+    }
+
+    /**
+     * outputStream => inputStream
+     */
+    public ByteArrayInputStream parse(OutputStream out) {
+        ByteArrayOutputStream baos = (ByteArrayOutputStream) out;
+        return new ByteArrayInputStream(baos.toByteArray());
+    }
+
+    /**
+     * inputStream => String
+     */
+    public String parseString(InputStream in) throws Exception {
+        final ByteArrayOutputStream swapStream = new ByteArrayOutputStream();
+        int ch;
+        while ((ch = in.read()) != -1) {
+            swapStream.write(ch);
+        }
+        return swapStream.toString();
+    }
+
+    /**
+     * OutputStream => String
+     */
+    public String parseString(OutputStream out) {
+        ByteArrayOutputStream baos = (ByteArrayOutputStream) out;
+        final ByteArrayInputStream swapStream = new ByteArrayInputStream(baos.toByteArray());
+        return swapStream.toString();
+    }
+
+    /**
+     * String => inputStream
+     */
+    public ByteArrayInputStream parseInputStream(String in) {
+        return new ByteArrayInputStream(in.getBytes());
+    }
+
+    /**
+     * String => outputStream
+     */
+    public ByteArrayOutputStream parseOutputStream(String in) throws Exception {
+        return parse(parseInputStream(in));
     }
 
 }

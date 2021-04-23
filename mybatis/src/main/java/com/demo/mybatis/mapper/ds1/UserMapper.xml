@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.mybatis.mapper.ds1.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.demo.mybatis.model.User">
+        <id property="id" column="id" jdbcType="BIGINT" />
+        <result property="name" column="name" jdbcType="VARCHAR" />
+        <result property="age" column="age" jdbcType="INTEGER" />
+        <result property="birthday" column="birthday" jdbcType="TIMESTAMP" />
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP" />
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.demo.mybatis.model.User">
+        INSERT INTO `joker`.`user`
+        (
+            `name`,
+            `age`,
+            `birthday`
+        )
+        VALUES
+        (
+            #{user.name},
+            #{user.age},
+            #{user.birthday}
+        )
+    </insert>
+
+    <delete id="deleteById" parameterType="long">
+        DELETE FROM `joker`.`user`
+        WHERE `id` = #{id}
+    </delete>
+
+    <update id="updateById" parameterType="com.demo.mybatis.model.User">
+        UPDATE `joker`.`user`
+        SET
+            `name` = #{user.name},
+            `age` = #{user.age},
+            `birthday`= #{user.birthday}
+        WHERE `id` = #{user.id}
+    </update>
+
+    <select id="selectById" parameterType="long" resultMap="BaseResultMap">
+        SELECT `name`, `age`, `birthday`, `create_time`, `update_time`
+        FROM `joker`.`user`
+        WHERE `id` = #{id}
+    </select>
+
+</mapper>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+       Copyright 2015-2016 the original author or authors.
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+-->
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--
+     | 全局配置设置
+     |
+     | 可配置选项                                        默认值, 描述
+     |
+     | aggressiveLazyLoading     true, 当设置为‘true’的时候，懒加载的对象可能被任何懒属性全部加载。否则，每个属性都按需加载。
+     | multipleResultSetsEnabled true, 允许和不允许单条语句返回多个数据集（取决于驱动需求）
+     | useColumnLabel            true, 使用列标签代替列名称。不同的驱动器有不同的作法。参考一下驱动器文档，或者用这两个不同的选项进行测试一下。
+     | useGeneratedKeys          false, 允许JDBC 生成主键。需要驱动器支持。如果设为了true，这个设置将强制使用被生成的主键，有一些驱动器不兼容不过仍然可以执行。
+     | autoMappingBehavior       PARTIAL, 指定MyBatis 是否并且如何来自动映射数据表字段与对象的属性。PARTIAL将只自动映射简单的，没有嵌套的结果。FULL 将自动映射所有复杂的结果。
+     | defaultExecutorType       SIMPLE, 配置和设定执行器，SIMPLE 执行器执行其它语句。REUSE 执行器可能重复使用prepared statements 语句，BATCH执行器可以重复执行语句和批量更新。
+     | defaultStatementTimeout   null, 设置一个时限，以决定让驱动器等待数据库回应的多长时间为超时
+     | -->
+    <settings>
+        <!-- 这个配置使全局的映射器启用或禁用缓存 -->
+        <setting name="cacheEnabled" value="true" />
+        <!-- 全局启用或禁用延迟加载。当禁用时，所有关联对象都会即时加载 -->
+        <!-- 查询时，关闭关联对象即时加载以提高性能 -->
+        <setting name="lazyLoadingEnabled" value="true" />
+
+        <!-- 对于未知的SQL查询，允许返回不同的结果集以达到通用的效果 -->
+        <setting name="multipleResultSetsEnabled" value="true"/>
+
+        <!-- 允许使用列标签代替列名 -->
+        <setting name="useColumnLabel" value="true"/>
+
+        <!-- 不允许使用自定义的主键值(比如由程序生成的UUID 32位编码作为键值)，数据表的PK生成策略将被覆盖 -->
+        <setting name="useGeneratedKeys" value="false"/>
+
+        <!-- 给予被嵌套的resultMap以字段-属性的映射支持 FULL,PARTIAL -->
+        <setting name="autoMappingBehavior" value="PARTIAL"/>
+
+        <!-- 对于批量更新操作缓存SQL以提高性能 BATCH,SIMPLE -->
+        <!-- <setting name="defaultExecutorType" value="BATCH" /> -->
+
+        <!-- 数据库超过25000秒仍未响应则超时 -->
+        <!-- <setting name="defaultStatementTimeout" value="25000" /> -->
+
+        <!-- Allows using RowBounds on nested statements -->
+        <setting name="safeRowBoundsEnabled" value="false"/>
+
+        <!-- Enables automatic mapping from classic database column names A_COLUMN
+            to camel case classic Java property names aColumn. -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+
+        <!-- MyBatis uses local cache to prevent circular references and speed
+            up repeated nested queries. By default (SESSION) all queries executed during
+            a session are cached. If localCacheScope=STATEMENT local session will be
+            used just for statement execution, no data will be shared between two different
+            calls to the same SqlSession. -->
+        <setting name="localCacheScope" value="SESSION"/>
+
+        <!-- Specifies the JDBC type for null values when no specific JDBC type
+            was provided for the parameter. Some drivers require specifying the column
+            JDBC type but others work with generic values like NULL, VARCHAR or OTHER. -->
+        <setting name="jdbcTypeForNull" value="OTHER"/>
+
+        <!-- Specifies which Object's methods trigger a lazy load -->
+        <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+
+        <!-- 设置关联对象加载的形态，此处为按需加载字段(加载字段由SQL指 定)，不会加载关联表的所有字段，以提高性能 -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <setting name="multipleResultSetsEnabled" value="true" />
+        <setting name="useColumnLabel" value="true" />
+        <setting name="defaultExecutorType" value="REUSE" />
+        <setting name="defaultStatementTimeout" value="25000" />
+        <!-- 打印查询语句 -->
+        <setting name="logImpl" value="SLF4J" />
+    </settings>
+
+    <!-- 查询对象别名配置 -->
+    <typeAliases>
+        <!--
+        <typeAlias alias="taskVo" type="xxx.vo.TaskVo" />
+         -->
+        <!--<package name="com.jiazi.pay.mapper"/>-->
+    </typeAliases>
+    <!-- 集中配置所有 Mapper.xml 或使用spring boot扫描mapper 配置属性为mapper-locations-->
+    <mappers>
+        <!--<mapper resource="mappers/OrderMapper.xml"/>-->
+        <!--<mapper resource="mappers/OldCourseMapper.xml"/>-->
+    </mappers>
+</configuration>
