@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class SpeechContestTest {
 
-    private static final String BASE_PATH = "/Users/bjhl/Desktop/com.demo.excel.excel";
+    private static final String BASE_PATH = "/Users/bjhl/Desktop/excel";
 
     @Test
     public void test() {

@@ -25,7 +25,7 @@ import javax.sql.DataSource;
 //@Configuration
 @PropertySource(ignoreResourceNotFound = true, value = { "classpath:jdbc.properties" })
 // ⬇ 配置这个dataSource的mapper文件路径
-@MapperScan(basePackages = { "com.demo.mybatis.mapper.ds1" }, sqlSessionFactoryRef = "sqlSessionFactory")
+@MapperScan(basePackages = { "com.demo.mybatis.mapper.ds1" }, sqlSessionFactoryRef = "rdsSqlSessionFactory")
 public class RDSDataSourceConfiguration {
 
     /**
@@ -45,7 +45,7 @@ public class RDSDataSourceConfiguration {
         return new HikariDataSource(config);
     }
 
-    @Bean(name = "sqlSessionFactory")
+    @Bean(name = "rdsSqlSessionFactory")
     public SqlSessionFactory sqlSessionFactory(
             @Qualifier(value = DataSourceType.RDS) DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
@@ -54,7 +54,7 @@ public class RDSDataSourceConfiguration {
         return bean.getObject();
     }
 
-    @Bean(name = "transactionManager")
+    @Bean(name = "rdsTransactionManager")
     public PlatformTransactionManager transactionManager(
             @Qualifier(value = DataSourceType.RDS) DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);

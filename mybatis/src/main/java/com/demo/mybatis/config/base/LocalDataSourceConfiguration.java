@@ -25,7 +25,7 @@ import javax.sql.DataSource;
 //@Configuration
 @PropertySource(ignoreResourceNotFound = true, value = { "classpath:jdbc.properties" })
 // ⬇ 配置这个dataSource的mapper文件路径
-@MapperScan(basePackages = { "com.demo.mybatis.mapper.ds2" }, sqlSessionFactoryRef = "sqlSessionFactory2")
+@MapperScan(basePackages = { "com.demo.mybatis.mapper.ds2" }, sqlSessionFactoryRef = "localSqlSessionFactory")
 public class LocalDataSourceConfiguration {
 
     /**
@@ -45,7 +45,7 @@ public class LocalDataSourceConfiguration {
         return new HikariDataSource(config);
     }
 
-    @Bean(name = "sqlSessionFactory2")
+    @Bean(name = "localSqlSessionFactory")
     public SqlSessionFactory sqlSessionFactory(
             @Qualifier(value = DataSourceType.LOCAL) DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
@@ -54,7 +54,7 @@ public class LocalDataSourceConfiguration {
         return bean.getObject();
     }
 
-    @Bean(name = "transactionManager2")
+    @Bean(name = "localTransactionManager")
     public PlatformTransactionManager transactionManager(
             @Qualifier(value = DataSourceType.LOCAL) DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
