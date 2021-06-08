@@ -26,6 +26,8 @@
         <module>monogodb</module>
         <module>nginx</module>
         <module>easy-excel</module>
+        <module>hbase</module>
+        <module>juc</module>
     </modules>
 
     <properties>

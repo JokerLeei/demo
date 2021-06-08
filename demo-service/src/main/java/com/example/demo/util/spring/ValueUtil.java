@@ -30,6 +30,8 @@ public class ValueUtil implements BeanFactoryAware {
 
     /**
      * 解析spring容器中的一个表达式，获取一个值
+     * 1.根据 ${} 获取spring容器中值
+     * 2.根据 #{} 作运算，得结果
      *
      * @param value 一个固定值或一个表达式。如果是一个固定值，则直接返回固定值，否则解析一个表达式，返回解析后的值
      * @return      表达式值

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+/**
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+
+<configuration>
+  <!--
+  集群的连接地址(公网地址)在控制台页面的数据库连接界面获得
+  -->
+  <property>
+      <name>hbase.zookeeper.quorum</name>
+      <value>https://sh-2zeeh972cvt8s4042-lindorm-serverless.lindorm.rds.aliyuncs.com:443</value>
+  </property>
+  <!--
+  设置用户名密码，默认AccessKey ID:AccessKey Secret，可根据实际情况调整
+  -->
+  <property>
+      <name>hbase.client.username</name>
+      <value>LTAI5t6YMh6WBnS4yX9BuvbY</value>
+  </property>
+  <property>
+      <name>hbase.client.password</name>
+      <value>OkYPwddyjI511ZXwkdhwnDxm4KFPpo</value>
+  </property>
+  <!--
+  如果您直接依赖了阿里云hbase客户端，则无需配置connection.impl参数，如果您依赖了alihbase-connector，则需要配置此参数
+  -->
+  <!--
+    <property>
+        <name>hbase.client.connection.impl</name>
+        <value>org.apache.hadoop.hbase.client.AliHBaseUEClusterConnection</value>
+    </property>
+  -->
+</configuration>

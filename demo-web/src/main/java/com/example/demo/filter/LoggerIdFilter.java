@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * loggerId filter
@@ -53,6 +54,7 @@ public class LoggerIdFilter implements Filter {
         }
 
         MDC.put(LOGGER_ID_PARAM_NAME, loggerId);
+//        ((HttpServletResponse)response).setHeader(LOGGER_ID_PARAM_NAME, loggerId);
 
         try {
             chain.doFilter(request, response);

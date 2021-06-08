@@ -1,6 +1,5 @@
 package com.auto.rocketmq.annotation.config;
 
-import org.springframework.transaction.support.TransactionTemplate;
 
 import javax.sql.DataSource;
 
@@ -31,18 +30,19 @@ public class RocketConfig {
     private String secretKey;
 
     /**
-     * rocketMQ groupId
+     * rocketMQ default groupId
+     * 当没有指定消费者group时，使用此值
      */
-    private String groupId;
+    private String defaultGroupId;
 
     /**
      *
      */
-    private TransactionTemplate transactionTemplate;
+//    private TransactionTemplate transactionTemplate;
 
     /**
      *
      */
-    private DataSource dataSource;
+//    private DataSource dataSource;
 
 }

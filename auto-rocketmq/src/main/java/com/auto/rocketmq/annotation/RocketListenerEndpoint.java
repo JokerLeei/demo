@@ -39,7 +39,7 @@ public class RocketListenerEndpoint {
     /**
      * 实际调用的方法
      */
-    private Method method;
+    private Method realMethod;
 
     /**
      * spring bean
