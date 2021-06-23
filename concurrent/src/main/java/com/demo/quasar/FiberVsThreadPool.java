@@ -1,4 +1,4 @@
-package com.demo.juc.quasar;
+package com.demo.quasar;
 
 import java.util.List;
 import java.util.concurrent.CountDownLatch;

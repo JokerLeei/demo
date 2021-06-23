@@ -28,8 +28,8 @@ public class HttpUtils {
 
     public static String post(String url, JSON body, Integer readTimeout, Integer connectTimeout, Map<String, String> headers) {
         HttpURLConnection conn;
-        OutputStreamWriter os = null;
-        BufferedReader rd = null;
+        OutputStreamWriter osw = null;
+        BufferedReader br = null;
         String requestBody = null;
         StringBuilder sb = new StringBuilder();
         String line;
@@ -53,13 +53,13 @@ public class HttpUtils {
                 }
             }
             conn.connect();
-            os = new OutputStreamWriter(conn.getOutputStream(), StandardCharsets.UTF_8);
+            osw = new OutputStreamWriter(conn.getOutputStream(), StandardCharsets.UTF_8);
             if (requestBody != null) {
-                os.write(requestBody);
+                osw.write(requestBody);
             }
-            os.flush();
-            rd = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8));
-            while ((line = rd.readLine()) != null) {
+            osw.flush();
+            br = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8));
+            while ((line = br.readLine()) != null) {
                 sb.append(line);
             }
             response = sb.toString();
@@ -67,11 +67,11 @@ public class HttpUtils {
             log.error("error post url:" + url, e);
         } finally {
             try {
-                if (os != null) {
-                    os.close();
+                if (osw != null) {
+                    osw.close();
                 }
-                if (rd != null) {
-                    rd.close();
+                if (br != null) {
+                    br.close();
                 }
             } catch (IOException e) {
                 log.error("error close conn", e);
