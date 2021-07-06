@@ -16,11 +16,9 @@
     <version>1.0.0-SNAPSHOT</version>
 
     <modules>
-        <module>demo-service</module>
         <module>demo-web</module>
-        <module>auto-rocketmq</module>
+        <module>rocketmq</module>
         <module>mybatis</module>
-        <module>guava</module>
         <module>kafka-client</module>
         <module>redis</module>
         <module>monogodb</module>
@@ -28,129 +26,12 @@
         <module>easy-excel</module>
         <module>hbase</module>
         <module>concurrent</module>
+        <module>elastic-search</module>
     </modules>
 
     <properties>
         <!-- 若有多个启动类, mvn启动boot项目的启动类配置 -->
         <start-class>com.example.demo.Application</start-class>
-        <java.version>1.8</java.version>
-        <junit-jupiter-api.version>5.5.0</junit-jupiter-api.version>
-        <fastjson.version>1.2.60.sec10</fastjson.version>
-        <guava.version>19.0</guava.version>
-        <jedis.version>2.10.2</jedis.version>
-<!--        <redisson.version>3.12.5</redisson.version>-->
     </properties>
-
-    <dependencies>
-        <!-- spring boot starter -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-
-        <!-- spring web -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <!-- lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <!-- test -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- junit5 -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit-jupiter-api.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!--FastJson-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
-        </dependency>
-
-        <!--引入AOP依赖-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-        </dependency>
-
-        <!--Guava-->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
-        </dependency>
-
-        <!-- spring data redis -->
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-redis</artifactId>
-        </dependency>
-        <!-- jedis -->
-        <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
-            <version>${jedis.version}</version>
-        </dependency>
-        <!-- redisson -->
-<!--        <dependency>-->
-<!--            <groupId>org.redisson</groupId>-->
-<!--            <artifactId>redisson-spring-boot-starter</artifactId>-->
-<!--            <version>${redisson.version}</version>-->
-<!--        </dependency>-->
-
-        <!-- ONS -->
-        <dependency>
-            <groupId>com.aliyun.openservices</groupId>
-            <artifactId>ons-client</artifactId>
-            <version>1.8.0.Final</version>
-        </dependency>
-
-        <!-- 解决 Spring Boot Configuration Annotation Processor not configured -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-
-            <!-- 用于在编译时把方法参数名称保留到 class 文件中(JDK8+支持) -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.3</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <compilerArgs>
-                        <arg>-parameters</arg>
-                    </compilerArgs>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

@@ -5,15 +5,3 @@ server:
 logging:
   # log配置文件路径
   config: classpath:log/logback.xml
-
-accessKey: LTAI4G4xgmkhnkQmXV6EAyek
-secretKey: UBYI2tBYCdZ75rattKAb5iqBL3GcZG
-nameSrvAddr: http://MQ_INST_1048400171395301_BXcXru8T.mq-internet-access.mq-internet.aliyuncs.com:80
-
-rocketmq:
-  access-key: LTAI4G5CTrSBZPX2nKP8q36p
-  group-id: GID_demo
-  secret-key: VJGM96sZsXLIvnRZag6ZixQVPKGZ8f
-  name-srv-addr: http://MQ_INST_1048400171395301_BXcXru8T.mq-internet-access.mq-internet.aliyuncs.com:80
-  topic: test-topic
-  tag: '*'
